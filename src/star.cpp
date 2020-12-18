@@ -32,14 +32,16 @@ void Star::find_pointers()
     {
         for(int y = 0; y < this->_height; y++)
         {
+			Node& node = this->_nodes[y * this->_width + x];
+
             if(y > 0)
-                this->_nodes[y * this->_width + x].vecNeighbours.push_back(&this->_nodes[(y - 1) * this->_width + x]);
+                node.vecNeighbours.push_back(&this->_nodes[(y - 1) * this->_width + x]);
             if(y < this->_height - 1)
-                this->_nodes[y * this->_width + x].vecNeighbours.push_back(&this->_nodes[(y + 1) * this->_width + x]);
+                node.vecNeighbours.push_back(&this->_nodes[(y + 1) * this->_width + x]);
             if(x > 0)
-                this->_nodes[y * this->_width + x].vecNeighbours.push_back(&this->_nodes[y * this->_width + (x - 1)]);
+                node.vecNeighbours.push_back(&this->_nodes[y * this->_width + (x - 1)]);
             if(x < this->_width - 1)
-                this->_nodes[y * this->_width + x].vecNeighbours.push_back(&this->_nodes[y * this->_width + (x + 1)]);
+                node.vecNeighbours.push_back(&this->_nodes[y * this->_width + (x + 1)]);
         }
     }
 }
