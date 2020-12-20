@@ -6,7 +6,7 @@
 const int WIDTH = 400;
 const int HEIGHT = 400;
 
-const int cellPadding = 1;
+const int cellPadding = 0;
 
 int main()
 {
@@ -28,13 +28,8 @@ int main()
     Converter converter;
 
 	auto rectangles = converter.convert(val);
-	const int rectangleHeight = std::ceil(float(HEIGHT -
-                                                        (cellPadding >0 ? (rectangleCountY * cellPadding) : 0)
-                                                        ) / rectangleCountY);
-
-    const int rectangleWidth = std::ceil(float(WIDTH -
-                                                (cellPadding >0 ? (rectangleCountX * cellPadding) : 0)
-                                                ) / rectangleCountX);
+	const int rectangleHeight = std::ceil(float(HEIGHT - (rectangleCountY * cellPadding)) / rectangleCountY);
+	const int rectangleWidth = std::ceil(float(WIDTH - (rectangleCountX * cellPadding)) / rectangleCountX);
 
 	int x,y;
 	x = y = 0;
